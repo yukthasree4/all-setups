@@ -1,12 +1,10 @@
-#create amazonlinux ec2 with t2.micro and 30 gb of ebs with port 8081 
-
 sudo yum update -y
 sudo yum install wget -y
 sudo yum install java-17-amazon-corretto-jmods -y
 sudo mkdir /app && cd /app
 sudo wget https://download.sonatype.com/nexus/3/nexus-3.79.1-04-linux-x86_64.tar.gz
 sudo tar -xvf nexus-3.79.1-04-linux-x86_64.tar.gz
-sudo mv nexus* nexus
+sudo mv nexus-3.79.1-04 nexus
 sudo adduser nexus
 sudo chown -R nexus:nexus /app/nexus
 sudo chown -R nexus:nexus /app/sonatype*
@@ -33,4 +31,3 @@ sudo chkconfig nexus on
 sudo systemctl start nexus
 sudo systemctl enable nexus
 sudo systemctl status nexus
-
